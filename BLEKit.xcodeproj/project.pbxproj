@@ -170,6 +170,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		784F503C1D2AEA3200D8A6F9 /* BLEKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BLEKit.podspec; sourceTree = "<group>"; };
 		A9CBD85E1BB1D1A900D1AAE9 /* BLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CBD8621BB1D1A900D1AAE9 /* BLEKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLEKit-Info.plist"; sourceTree = "<group>"; };
 		A9CBD8631BB1D1A900D1AAE9 /* BLEKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEKit.h; sourceTree = "<group>"; };
@@ -355,6 +356,7 @@
 		A9CBD8541BB1D1A900D1AAE9 = {
 			isa = PBXGroup;
 			children = (
+				784F503C1D2AEA3200D8A6F9 /* BLEKit.podspec */,
 				A9CBD8601BB1D1A900D1AAE9 /* src */,
 				A9CBD86D1BB1D1A900D1AAE9 /* tests */,
 				A9CBD85F1BB1D1A900D1AAE9 /* Products */,
