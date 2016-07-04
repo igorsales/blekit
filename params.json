@@ -1,0 +1,6 @@
+{
+  "name": "BLEKit",
+  "tagline": "Bluetooth Low Energy Kit (Framework)",
+  "body": "### Welcome to BLEKit\r\nBLEKit (/blekit/) is a simple iOS Framework to develop apps based on the BLEKit platform. With it you can\r\n\r\n1. Create iBeacons\r\n1. Discover BLEKit peripherals around you\r\n1. Remotely control peripherals\r\n1. Create wireless sensors for whichever application you see fit\r\n\r\n### Under construction\r\nThis project is constantly under construction! Feel free to contribute.\r\n\r\n### Authors and Contributors\r\nIn 2014, @igorsales started working on BLEKit on his spare time, and he now maintains and develops the framework on his spare time. It has been open sourced since July/2016.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
