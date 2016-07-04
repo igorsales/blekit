@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKJoystickViewController</string>
+		<key>kBLKPortWidgetName</key>
+		<string>Joystick</string>
+		<key>kBLKPorts</key>
+		<array>
+			<dict>
+				<key>kBLKPortType</key>
+				<string>kBLKPortTypePWMChannels</string>
+				<key>kBLKPortIdentifier</key>
+				<string>port</string>
+			</dict>
+			<dict>
+				<key>kBLKPortType</key>
+				<string>kBLKPortTypePWMChannels</string>
+				<key>kBLKPortIdentifier</key>
+				<string>defaultsPWMPort</string>
+				<key>kBLKPortOptions</key>
+				<dict>
+					<key>isDefaults</key>
+					<true/>
+				</dict>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKI2CViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeI2CControl</string>
+		<key>kBLKPortWidgetName</key>
+		<string>I2C Control</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKCompassViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeI2CControl</string>
+		<key>kBLKPortWidgetName</key>
+		<string>Compass</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKAccelerometerViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeI2CControl</string>
+		<key>kBLKPortWidgetName</key>
+		<string>Accelerometer</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKGyroscopeViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeI2CControl</string>
+		<key>kBLKPortWidgetName</key>
+		<string>Gyroscope</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKGPInputsViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeGPIO_Inputs</string>
+		<key>kBLKPortWidgetName</key>
+		<string>General Purpose Inputs</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKGPOutputsViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeGPIO_Outputs</string>
+		<key>kBLKPortWidgetName</key>
+		<string>General Purpose Outputs</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKPWMSliderViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypePWMChannels</string>
+		<key>kBLKPortWidgetName</key>
+		<string>Pulse Width Modulation Slider</string>
+	</dict>
+	<dict>
+		<key>kBLKPortViewControllerClassName</key>
+		<string>BLKADCViewController</string>
+		<key>kBLKPortType</key>
+		<string>kBLKPortTypeADCs</string>
+		<key>kBLKPortWidgetName</key>
+		<string>VoltMeter</string>
+	</dict>
+</array>
+</plist>
