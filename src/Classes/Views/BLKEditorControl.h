@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKEditorControl : UIControl
 
 @property (nonatomic, assign) CGFloat draggableBorderWidth;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKLEDView : UIControl
 
 @property (nonatomic, strong) UIColor*  LEDColour;

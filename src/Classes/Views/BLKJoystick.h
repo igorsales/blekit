@@ -23,6 +23,7 @@ typedef enum {
 
 @class BLKJoystick;
 
+IB_DESIGNABLE
 @interface BLKJoystick : UIControl
 
 - (id)initWithType:(BLKJoystickType)type;

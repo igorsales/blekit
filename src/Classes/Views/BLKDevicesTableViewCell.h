@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @class BLKProgressiveBarsView;
 
 @interface BLKDevicesTableViewCell : UITableViewCell

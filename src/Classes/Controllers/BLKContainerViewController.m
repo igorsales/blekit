@@ -158,7 +158,8 @@
             NSLog(@"Loaded view");
         }
     }
-    UIViewController* newVC = [[control.viewControllerClass alloc] initWithNibName:nil bundle:nil];
+    UIViewController* newVC = [[control.viewControllerClass alloc] initWithNibName:nil
+                                                                            bundle:[NSBundle bundleForClass:control.viewControllerClass]];
     
     if ([newVC respondsToSelector:@selector(setControl:)]) {
         [(id<BLKControlViewControllerProtocol>)newVC setControl:control];

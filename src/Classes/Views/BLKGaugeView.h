@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKGaugeView : UIView
 
 @property (nonatomic, strong) UIColor* fillColor;

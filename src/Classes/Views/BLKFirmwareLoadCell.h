@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKFirmwareLoadCell : UIView
 
 @property (nonatomic, weak) IBOutlet UIView* backdropView;

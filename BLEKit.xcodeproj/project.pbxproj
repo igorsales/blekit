@@ -152,7 +152,7 @@
 		A9CBDA081BB1D2E900D1AAE9 /* BLKLEDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9521BB1D2E900D1AAE9 /* BLKLEDView.xib */; };
 		A9CBDA091BB1D2E900D1AAE9 /* BLKPWMSliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9541BB1D2E900D1AAE9 /* BLKPWMSliderViewController.xib */; };
 		A9CBDA0A1BB1D2E900D1AAE9 /* BLKSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9561BB1D2E900D1AAE9 /* BLKSliderCell.xib */; };
-		A9CBDA0B1BB1D2E900D1AAE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9581BB1D2E900D1AAE9 /* Images.xcassets */; };
+		A9CBDA0B1BB1D2E900D1AAE9 /* BLKImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9581BB1D2E900D1AAE9 /* BLKImages.xcassets */; };
 		A9CBDA0C1BB1D2E900D1AAE9 /* BLKPortTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9591BB1D2E900D1AAE9 /* BLKPortTypes.plist */; };
 		A9CBDA0D1BB1D2E900D1AAE9 /* BLKServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD95A1BB1D2E900D1AAE9 /* BLKServices.plist */; };
 		A9FB58151BD039B400ECB550 /* BLKADCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD88C1BB1D2E900D1AAE9 /* BLKADCSettingsViewController.m */; };
@@ -329,7 +329,7 @@
 		A9CBD9531BB1D2E900D1AAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BLKLEDView.xib; sourceTree = "<group>"; };
 		A9CBD9551BB1D2E900D1AAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BLKPWMSliderViewController.xib; sourceTree = "<group>"; };
 		A9CBD9571BB1D2E900D1AAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BLKSliderCell.xib; sourceTree = "<group>"; };
-		A9CBD9581BB1D2E900D1AAE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A9CBD9581BB1D2E900D1AAE9 /* BLKImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BLKImages.xcassets; sourceTree = "<group>"; };
 		A9CBD9591BB1D2E900D1AAE9 /* BLKPortTypes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLKPortTypes.plist; sourceTree = "<group>"; };
 		A9CBD95A1BB1D2E900D1AAE9 /* BLKServices.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BLKServices.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -643,7 +643,7 @@
 				A9CBD9521BB1D2E900D1AAE9 /* BLKLEDView.xib */,
 				A9CBD9541BB1D2E900D1AAE9 /* BLKPWMSliderViewController.xib */,
 				A9CBD9561BB1D2E900D1AAE9 /* BLKSliderCell.xib */,
-				A9CBD9581BB1D2E900D1AAE9 /* Images.xcassets */,
+				A9CBD9581BB1D2E900D1AAE9 /* BLKImages.xcassets */,
 				A9CBD9591BB1D2E900D1AAE9 /* BLKPortTypes.plist */,
 				A9CBD95A1BB1D2E900D1AAE9 /* BLKServices.plist */,
 			);
@@ -808,7 +808,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CBDA061BB1D2E900D1AAE9 /* BLKI2CViewController.xib in Resources */,
-				A9CBDA0B1BB1D2E900D1AAE9 /* Images.xcassets in Resources */,
+				A9CBDA0B1BB1D2E900D1AAE9 /* BLKImages.xcassets in Resources */,
 				A9CBD9FD1BB1D2E900D1AAE9 /* BLKAccelerometerViewController.xib in Resources */,
 				A9CBDA041BB1D2E900D1AAE9 /* BLKGPIOsViewController.xib in Resources */,
 				A9CBDA051BB1D2E900D1AAE9 /* BLKGyroscopeViewController.xib in Resources */,

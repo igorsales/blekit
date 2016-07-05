@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKSliderCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UIButton* minusButton;

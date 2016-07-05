@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKCompassView : UIView
 
 @property (nonatomic, assign) CGPoint bearings;

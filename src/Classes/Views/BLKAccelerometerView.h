@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+IB_DESIGNABLE
 @interface BLKAccelerometerView : UIView
 
 @property (nonatomic, assign, setter=setXY:) CGPoint xy;
