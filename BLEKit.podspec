@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
                     * Update the firmware on your BLEKit peripheral
                     * Connect and communicate with different ports on your BLEKit peripheral
                     DESC
-  s.homepage = 'https://github.com/jonreid/OCMockito'
+  s.homepage = 'https://ble-kit.org'
   s.license  = 'MIT'
   s.author   = { 'Igor Sales' => 'self@igorsales.ca' }
-  s.social_media_url = 'https://twitter.com/qcoding'
+  s.social_media_url = 'https://twitter.com/igorsales'
  
   s.ios.deployment_target = '8.4'
   # s.osx.deployment_target = '10.8' # TODO
