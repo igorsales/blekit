@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   # s.tvos.deployment_target = '9.0' # TODO
   s.source   = { :git => 'https://github.com/igorsales/blekit.git', :tag => 'v1.0.0' }
   s.source_files = 'src/**/*.{h,m}'
-  s.resources = 'Resources/BLK*.plist'
+  s.resources = 'Resources/BLK*.plist', 'Resources/Base.lproj/BLK*.{xib,storyboard}'
   s.public_header_files = 'src/**/*.h'
   s.requires_arc = true
 end
