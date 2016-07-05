@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                     * Update the firmware on your BLEKit peripheral
                     * Connect and communicate with different ports on your BLEKit peripheral
                     DESC
-  s.homepage = 'https://ble-kit.org'
+  s.homepage = 'http://ble-kit.org'
   s.license  = 'MIT'
   s.author   = { 'Igor Sales' => 'self@igorsales.ca' }
   s.social_media_url = 'https://twitter.com/igorsales'
