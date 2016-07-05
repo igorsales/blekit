@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name     = 'BLEKit'
   s.version  = '1.0.0'
-  s.summary  = 'BLEKit is an Objective-C abstraction layer on the Bluetooth Low Energy CoreBluetooth framework, supporting discovery and management of BLEKit devices.'
+  s.summary  = 'BLEKit is an Objective-C abstraction layer on the Bluetooth Low Energy CoreBluetooth framework to use with BLEKit peripherals.'
   s.description = <<-DESC
                     BLEKit is an Objective-C abstraction ayer on the Bluetooth Low Energy CoreBluetooth
-                    framework, supporting discovery and management of BLEKit devices.
+                    framework to use with BLEKit peripherals.
                     With BLEKit you can
                     * Discover BLEKit devices around your BLEKit peripheral
                     * Update the firmware on your BLEKit peripheral

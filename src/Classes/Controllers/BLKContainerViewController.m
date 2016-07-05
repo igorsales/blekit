@@ -19,7 +19,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface BLKContainerViewController () <UIActionSheetDelegate, BLKEditorContainerDelegate, BLKControllerRotationManagerDelegate> {
+@interface BLKContainerViewController () <BLKEditorContainerDelegate, BLKControllerRotationManagerDelegate> {
     BOOL _setupEditButtonItem;
     BOOL _avoidUpdatingControlsOnViewWillAppear;
 }
@@ -410,18 +410,25 @@
 
 - (IBAction)addWidget:(UIBarButtonItem*)sender
 {
-    NSArray* titles = [[BLKPort controlPortTypes] valueForKey:kBLKPortWidgetName];
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"Add Widget"
-                                                       delegate:self
-                                              cancelButtonTitle:@"Cancel"
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:nil];
+    UIAlertController* sheet = [UIAlertController alertControllerWithTitle:@"Add Widget"
+                                                                   message:nil
+                                                            preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [titles enumerateObjectsUsingBlock:^(NSString* title, NSUInteger idx, BOOL *stop) {
-        [sheet addButtonWithTitle:title];
-    }];
+    for (NSDictionary* portType in [BLKPort controlPortTypes]) {
+        [sheet addAction:[UIAlertAction actionWithTitle:portType[kBLKPortWidgetName]
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction* action) {
+                                                    Class klass = NSClassFromString(portType[kBLKPortViewControllerClassName]);
+                                                    [self addNewWidgetForClass:klass];
+                                                }]];
+    }
     
-    [sheet showFromBarButtonItem:sender animated:YES];
+    [sheet addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+
+    
+    [self presentViewController:sheet animated:YES completion:nil];
 }
 
 - (IBAction)saveConfiguration:(id)sender
@@ -432,24 +439,6 @@
 - (IBAction)toggleNavigationBar:(id)sender
 {
     [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
-}
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (!buttonIndex) {
-        return; // Cancel is 0, so bail
-    }
-    
-    buttonIndex--;
-    
-    if (buttonIndex < actionSheet.numberOfButtons) {
-        NSDictionary* typeDict = [BLKPort controlPortTypes][buttonIndex];
-        
-        Class klass = NSClassFromString([typeDict valueForKey:kBLKPortViewControllerClassName]);
-        [self addNewWidgetForClass:klass];
-    }
 }
 
 #pragma mark - BLKEditorContainerDelegate
