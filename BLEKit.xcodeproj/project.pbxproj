@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9726D081D2D153700CB3A1B /* UIImage+BLK.h in Headers */ = {isa = PBXBuildFile; fileRef = A9726D061D2D153700CB3A1B /* UIImage+BLK.h */; };
+		A9726D091D2D153700CB3A1B /* UIImage+BLK.m in Sources */ = {isa = PBXBuildFile; fileRef = A9726D071D2D153700CB3A1B /* UIImage+BLK.m */; };
+		A9726D0A1D2D153700CB3A1B /* UIImage+BLK.m in Sources */ = {isa = PBXBuildFile; fileRef = A9726D071D2D153700CB3A1B /* UIImage+BLK.m */; };
 		A9CBD8641BB1D1A900D1AAE9 /* BLEKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8631BB1D1A900D1AAE9 /* BLEKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD86A1BB1D1A900D1AAE9 /* BLEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CBD85E1BB1D1A900D1AAE9 /* BLEKit.framework */; };
 		A9CBD8711BB1D1A900D1AAE9 /* BLEKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8701BB1D1A900D1AAE9 /* BLEKitTests.m */; };
@@ -39,11 +42,11 @@
 		A9CBD9761BB1D2E900D1AAE9 /* BLKJoystickSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8A31BB1D2E900D1AAE9 /* BLKJoystickSettingsViewController.m */; };
 		A9CBD9771BB1D2E900D1AAE9 /* BLKJoystickViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8A41BB1D2E900D1AAE9 /* BLKJoystickViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD9781BB1D2E900D1AAE9 /* BLKJoystickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8A51BB1D2E900D1AAE9 /* BLKJoystickViewController.m */; };
-		A9CBD9791BB1D2E900D1AAE9 /* BLKLoadsTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8A61BB1D2E900D1AAE9 /* BLKLoadsTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9CBD9791BB1D2E900D1AAE9 /* BLKLoadsTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8A61BB1D2E900D1AAE9 /* BLKLoadsTableViewController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A9CBD97A1BB1D2E900D1AAE9 /* BLKLoadsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8A71BB1D2E900D1AAE9 /* BLKLoadsTableViewController.m */; };
 		A9CBD97B1BB1D2E900D1AAE9 /* BLKLoadsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8A81BB1D2E900D1AAE9 /* BLKLoadsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD97C1BB1D2E900D1AAE9 /* BLKLoadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8A91BB1D2E900D1AAE9 /* BLKLoadsViewController.m */; };
-		A9CBD97D1BB1D2E900D1AAE9 /* BLKNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8AA1BB1D2E900D1AAE9 /* BLKNavigationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9CBD97D1BB1D2E900D1AAE9 /* BLKNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8AA1BB1D2E900D1AAE9 /* BLKNavigationController.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A9CBD97E1BB1D2E900D1AAE9 /* BLKNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8AB1BB1D2E900D1AAE9 /* BLKNavigationController.m */; };
 		A9CBD97F1BB1D2E900D1AAE9 /* BLKPWMSliderSettingsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8AC1BB1D2E900D1AAE9 /* BLKPWMSliderSettingsViewController.h */; };
 		A9CBD9801BB1D2E900D1AAE9 /* BLKPWMSliderSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8AD1BB1D2E900D1AAE9 /* BLKPWMSliderSettingsViewController.m */; };
@@ -90,7 +93,7 @@
 		A9CBD9A91BB1D2E900D1AAE9 /* BLKDiscoveryOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8DB1BB1D2E900D1AAE9 /* BLKDiscoveryOperation.m */; };
 		A9CBD9AA1BB1D2E900D1AAE9 /* BLKFirmwareUpdateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8DC1BB1D2E900D1AAE9 /* BLKFirmwareUpdateOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD9AB1BB1D2E900D1AAE9 /* BLKFirmwareUpdateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8DD1BB1D2E900D1AAE9 /* BLKFirmwareUpdateOperation.m */; };
-		A9CBD9AC1BB1D2E900D1AAE9 /* BLKOperation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8DE1BB1D2E900D1AAE9 /* BLKOperation+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9CBD9AC1BB1D2E900D1AAE9 /* BLKOperation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8DE1BB1D2E900D1AAE9 /* BLKOperation+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A9CBD9AD1BB1D2E900D1AAE9 /* BLKOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8DF1BB1D2E900D1AAE9 /* BLKOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD9AE1BB1D2E900D1AAE9 /* BLKOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8E01BB1D2E900D1AAE9 /* BLKOperation.m */; };
 		A9CBD9AF1BB1D2E900D1AAE9 /* BLKADCPort.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8E21BB1D2E900D1AAE9 /* BLKADCPort.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,7 +104,7 @@
 		A9CBD9B41BB1D2E900D1AAE9 /* BLKI2CControlPort.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8E71BB1D2E900D1AAE9 /* BLKI2CControlPort.m */; };
 		A9CBD9B51BB1D2E900D1AAE9 /* BLKOTAUpdatePort.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8E81BB1D2E900D1AAE9 /* BLKOTAUpdatePort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD9B61BB1D2E900D1AAE9 /* BLKOTAUpdatePort.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8E91BB1D2E900D1AAE9 /* BLKOTAUpdatePort.m */; };
-		A9CBD9B71BB1D2E900D1AAE9 /* BLKPort+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8EA1BB1D2E900D1AAE9 /* BLKPort+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9CBD9B71BB1D2E900D1AAE9 /* BLKPort+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8EA1BB1D2E900D1AAE9 /* BLKPort+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		A9CBD9B81BB1D2E900D1AAE9 /* BLKPort.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8EB1BB1D2E900D1AAE9 /* BLKPort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9CBD9B91BB1D2E900D1AAE9 /* BLKPort.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD8EC1BB1D2E900D1AAE9 /* BLKPort.m */; };
 		A9CBD9BA1BB1D2E900D1AAE9 /* BLKPWMChannelsPort.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD8ED1BB1D2E900D1AAE9 /* BLKPWMChannelsPort.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -156,7 +159,7 @@
 		A9CBDA0C1BB1D2E900D1AAE9 /* BLKPortTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD9591BB1D2E900D1AAE9 /* BLKPortTypes.plist */; };
 		A9CBDA0D1BB1D2E900D1AAE9 /* BLKServices.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CBD95A1BB1D2E900D1AAE9 /* BLKServices.plist */; };
 		A9FB58151BD039B400ECB550 /* BLKADCSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CBD88C1BB1D2E900D1AAE9 /* BLKADCSettingsViewController.m */; };
-		A9FB58201BD335D700ECB550 /* UINib+NibView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD9171BB1D2E900D1AAE9 /* UINib+NibView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9FB58201BD335D700ECB550 /* UINib+NibView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9CBD9171BB1D2E900D1AAE9 /* UINib+NibView.h */; settings = {ATTRIBUTES = (Private, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +174,8 @@
 
 /* Begin PBXFileReference section */
 		784F503C1D2AEA3200D8A6F9 /* BLEKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BLEKit.podspec; sourceTree = "<group>"; };
+		A9726D061D2D153700CB3A1B /* UIImage+BLK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BLK.h"; sourceTree = "<group>"; };
+		A9726D071D2D153700CB3A1B /* UIImage+BLK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BLK.m"; sourceTree = "<group>"; };
 		A9CBD85E1BB1D1A900D1AAE9 /* BLEKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BLEKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CBD8621BB1D1A900D1AAE9 /* BLEKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BLEKit-Info.plist"; sourceTree = "<group>"; };
 		A9CBD8631BB1D1A900D1AAE9 /* BLEKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLEKit.h; sourceTree = "<group>"; };
@@ -622,6 +627,8 @@
 				A9CBD9161BB1D2E900D1AAE9 /* UIImageView+URL.m */,
 				A9CBD9171BB1D2E900D1AAE9 /* UINib+NibView.h */,
 				A9CBD9181BB1D2E900D1AAE9 /* UINib+NibView.m */,
+				A9726D061D2D153700CB3A1B /* UIImage+BLK.h */,
+				A9726D071D2D153700CB3A1B /* UIImage+BLK.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -682,6 +689,7 @@
 				A9CBD9CE1BB1D2E900D1AAE9 /* BLKProgressiveBarsView.h in Headers */,
 				A9CBD9C61BB1D2E900D1AAE9 /* BLKGaugeView.h in Headers */,
 				A9CBD9601BB1D2E900D1AAE9 /* BLKADCViewController.h in Headers */,
+				A9726D081D2D153700CB3A1B /* UIImage+BLK.h in Headers */,
 				A9CBD9901BB1D2E900D1AAE9 /* BLKOTAUpdateService.h in Headers */,
 				A9CBD9681BB1D2E900D1AAE9 /* BLKControlViewControllerProtocol.h in Headers */,
 				A9CBD9891BB1D2E900D1AAE9 /* BLKSTLSM330AccelDriver.h in Headers */,
@@ -895,6 +903,7 @@
 				A9CBD9BF1BB1D2E900D1AAE9 /* BLKCompassView.m in Sources */,
 				A9CBD9881BB1D2E900D1AAE9 /* BLKSTLIS3MDLDriver.m in Sources */,
 				A9CBD97C1BB1D2E900D1AAE9 /* BLKLoadsViewController.m in Sources */,
+				A9726D091D2D153700CB3A1B /* UIImage+BLK.m in Sources */,
 				A9CBD9B41BB1D2E900D1AAE9 /* BLKI2CControlPort.m in Sources */,
 				A9CBD9D31BB1D2E900D1AAE9 /* CALayer+Borders.m in Sources */,
 				A9CBD96C1BB1D2E900D1AAE9 /* BLKEditorViewController.m in Sources */,
@@ -915,6 +924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CBD8711BB1D1A900D1AAE9 /* BLEKitTests.m in Sources */,
+				A9726D0A1D2D153700CB3A1B /* UIImage+BLK.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "BLKDevicesTableViewCell.h"
+#import "UIImage+BLK.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation BLKDevicesTableViewCell
@@ -55,10 +56,10 @@
         
         if (success) {
             self.statusLabel.textColor = [UIColor blackColor];
-            self.statusImageView.image = [UIImage imageNamed:@"icon_check"];
+            self.statusImageView.image = [UIImage BLKIconCheckImage];
         } else {
             self.statusLabel.textColor = [UIColor redColor];
-            self.statusImageView.image = [UIImage imageNamed:@"icon_error"];
+            self.statusImageView.image = [UIImage BLKIconErrorImage];
         }
     } else {
         self.statusLabel.hidden = self.statusImageView.hidden = YES;

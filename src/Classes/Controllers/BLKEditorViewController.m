@@ -9,6 +9,7 @@
 #import "BLKEditorViewController.h"
 #import "BLKEditorControl.h"
 #import "BLKControlViewControllerProtocol.h"
+#import "UIImage+BLK.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface BLKEditorViewController ()
@@ -122,7 +123,7 @@ static NSString* const settingsVCKey[] = {
 
     // Add the delete button
     UIButton* delBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [delBtn setImage:[UIImage imageNamed:@"red_delete_minus"] forState:UIControlStateNormal];
+    [delBtn setImage:[UIImage BLKRedDeleteMinusImage] forState:UIControlStateNormal];
     delBtn.bounds = CGRectMake(0, 0, self.overview.draggableBorderWidth, self.overview.draggableBorderWidth);
     delBtn.autoresizingMask = UIViewAutoresizingNone;
     [self.overview addSubview:delBtn];
@@ -135,7 +136,7 @@ static NSString* const settingsVCKey[] = {
 
 - (void)updateDraggingHandlesOnOverview:(BLKEditorControl*)overview
 {
-    UIImage*     image     = [UIImage imageNamed:@"dragging_handle"];
+    UIImage*     image     = [UIImage BLKDraggingHandleImage];
     UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
     [overview addSubview:imageView];
 }
