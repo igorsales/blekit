@@ -26,7 +26,8 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    if ((self = [super initWithNibName:@"BLKGPIOsViewController" bundle:nil])) {
+    // Overwrite the nibName to always catch the same XIB file
+    if ((self = [super initWithNibName:@"BLKGPIOsViewController" bundle:nibBundleOrNil])) {
         
     }
 
