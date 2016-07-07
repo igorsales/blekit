@@ -4,31 +4,30 @@ layout: page
 ---
 
 ### Overview
-BLEKit (/blekit/) is a simple iOS Framework to develop apps based on the BLEKit platform. With it you can
+BLEKit (/blekit/) is a Bluetooth Low Energy platform. With it you can
 
-1.  iBeacons
 1. Discover BLEKit peripherals around you
 1. Remotely control peripherals
 1. Create wireless sensors
+1. Create iBeacon devices
 
 ### Hardware
-BLEKits are currently based on the [BLE-113](http://www.silabs.com/products/wireless/bluetooth/bluetooth-smart-modules/Pages/ble113-bluetooth-smart-module.aspx]) chip from Silicon Labs (subsidiary of [Bluegiga](https://www.bluegiga.com/en-US/)).
+BLEKits are currently based on the [BLE-113](http://www.silabs.com/products/wireless/bluetooth/bluetooth-smart-modules/Pages/ble113-bluetooth-smart-module.aspx]) chip from Silicon Labs (parent company of [Bluegiga](https://www.bluegiga.com/en-US/)).
 
-The hardware source design files can be found [here](https://github.com/igorsales/blekit-hw)
+BLEKit open source hardware files are [here](https://github.com/igorsales/blekit-hw)
 
 ### Firmware
 
-BLEKit's firmware is currently written in BGScript (Bluegiga's Smart Module programming language)
+BLEKit's firmware is written in BGScript (Bluegiga's Smart Module programming language)
 
-The firmware source can be found [here](https://github/igorsales/blekit-fw)
+The open source firmware is [here](https://github/igorsales/blekit-fw)
 
 ### Software
 
-BLEKit's interface software permits discovering, connecting to, and controller BLEKits. Only iOS is currently supprted.
+BLEKit's interface software permits discovering, connecting to, and controller BLEKits. 
+Currently, only iOS is supprted and is [here](https://github.com/igorsales/blekit)
 
-The software  for iOS can be found [here](https://github.com/igorsales/blekit)
-
-#### Some BLEKits available
+#### Open Source BLEKit projects
 
 1. [BLEKitRC](https://github.com/igorsales/blekit-rc)
 1. [CarBeacon](https://github.com/igorsales/carbeacon)
