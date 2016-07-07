@@ -1,5 +1,5 @@
 ---
-title: Bluetooth Low Energy Kit
+title: About
 layout: page
 ---
 
@@ -11,7 +11,8 @@ BLEKit (/blekit/) is a simple iOS Framework to develop apps based on the BLEKit 
 1. Remotely control peripherals
 1. Create wireless sensors for whichever application you see fit
 
-### Under construction\r\nThis project is constantly under construction! Feel free to contribute.
+### Under construction
+This project is constantly under construction! Feel free to contribute.
 
 ### Authors and Contributors
 In 2014, @igorsales started working on BLEKit on his spare time. He is still the principal maintainer. Open Source since July/2016.
