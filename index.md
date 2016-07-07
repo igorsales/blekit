@@ -20,7 +20,7 @@ BLEKit open source hardware files are [here](https://github.com/igorsales/blekit
 
 BLEKit's firmware is written in BGScript (Bluegiga's Smart Module programming language)
 
-The open source firmware is [here](https://github/igorsales/blekit-fw)
+The open source firmware is [here](https://github.com/igorsales/blekit-fw)
 
 ### Software
 
