@@ -36,7 +36,7 @@
 
 - (void)dealloc
 {
-    self.port = nil;
+    _port = nil;
     [self unbindProperties];
 }
 
