@@ -98,7 +98,8 @@
 
 #pragma mark - Private
 
-- (void)bindPortProperties {
+- (void)bindPortProperties
+{
     if (self.GPIOPort.canNotify) {
         [self.GPIOPort addObserver:self
                         forKeyPath:@"status"
@@ -107,7 +108,8 @@
     }
 }
 
-- (void)unbindPortProperties {
+- (void)unbindPortProperties
+{
     if (self.GPIOPort.canNotify) {
         [self.GPIOPort removeObserver:self forKeyPath:@"status"];
     }

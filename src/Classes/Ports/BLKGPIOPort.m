@@ -131,8 +131,21 @@ NSString* kBLKPortTypeGPIO_Outputs = @"kBLKPortTypeGPIO_Outputs";
 
 - (void)service:(BLKService *)service didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
 {
+    [self updateStatus];
+}
+
+- (void)service:(BLKService *)service didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
+{
+    [self updateStatus];
+    [super service:service didUpdateValueForCharacteristic:characteristic];
+}
+
+#pragma mark - Private
+
+- (void)updateStatus
+{
     NSUInteger bits = 0;
-    [characteristic.value getBytes:&bits length:1];
+    [self.characteristic.value getBytes:&bits length:1];
 
     [self willChangeValueForKey:@"status"];
     _status = _statusCache = bits;
