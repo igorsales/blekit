@@ -36,6 +36,7 @@
 
 - (void)dealloc
 {
+    [self unbindPortProperties];
     _port = nil;
     [self unbindProperties];
 }
@@ -48,20 +49,12 @@
 - (void)setPort:(BLKPort*)port
 {
     if (_port != port) {
-        if (self.GPIOPort.canNotify) {
-            [self.GPIOPort removeObserver:self
-                               forKeyPath:@"status"];
-        }
+        [self unbindPortProperties];
         
         _port = port;
         [self adjustLayout];
         
-        if (self.GPIOPort.canNotify) {
-            [self.GPIOPort addObserver:self
-                            forKeyPath:@"status"
-                               options:0
-                               context:nil];
-        }
+        [self bindPortProperties];
     }
 }
 
@@ -104,6 +97,21 @@
 }
 
 #pragma mark - Private
+
+- (void)bindPortProperties {
+    if (self.GPIOPort.canNotify) {
+        [self.GPIOPort addObserver:self
+                        forKeyPath:@"status"
+                           options:0
+                           context:nil];
+    }
+}
+
+- (void)unbindPortProperties {
+    if (self.GPIOPort.canNotify) {
+        [self.GPIOPort removeObserver:self forKeyPath:@"status"];
+    }
+}
 
 - (void)adjustLayout
 {
