@@ -2,3 +2,4 @@ language: objective-c
 # osx_image: xcode8
 xcode_project: BLEKit.xcodeproj
 xcode_scheme: BLEKit
+xcode_sdk: iphonesimulator
