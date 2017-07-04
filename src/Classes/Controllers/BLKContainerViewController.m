@@ -169,20 +169,6 @@
     [self.contentView addSubview:newVC.view];
     [newVC didMoveToParentViewController:self];
     
-    if (self.editing) {
-        BLKEditorViewController* editorVC = [BLKEditorViewController new];
-        
-        [self addChildViewController:editorVC];
-        [self.contentView addSubview:editorVC.view];
-        editorVC.delegate = newVC;
-        editorVC.editingViewController = newVC;
-        editorVC.containerDelegate = self;
-        
-        self.editorViewControllers = [self.editorViewControllers arrayByAddingObject:editorVC];
-        
-        [editorVC centreInParentAndFadeToShowAnimated:YES];
-    }
-    
     return newVC;
 }
 
@@ -193,7 +179,30 @@
 
     UIViewController* vc = [self addNewWidgetForControl:control];
 
+    if ([vc conformsToProtocol:@protocol(BLKControlViewControllerProtocol)]) {
+        [self wireUpControlSource:(id<BLKControlViewControllerProtocol>)vc];
+    }
+
+    if (self.editing) {
+        [self attachNewEditorViewControllerToWidget:vc];
+    }
+
     return vc;
+}
+
+- (void)attachNewEditorViewControllerToWidget:(UIViewController*)widgetVC
+{
+    BLKEditorViewController* editorVC = [BLKEditorViewController new];
+
+    [self addChildViewController:editorVC];
+    [self.contentView addSubview:editorVC.view];
+    editorVC.delegate = widgetVC;
+    editorVC.editingViewController = widgetVC;
+    editorVC.containerDelegate = self;
+
+    self.editorViewControllers = [self.editorViewControllers arrayByAddingObject:editorVC];
+
+    [editorVC centreInParentAndFadeToShowAnimated:YES];
 }
 
 - (void)connectControlsToPorts
@@ -202,29 +211,32 @@
     [self.childViewControllers enumerateObjectsUsingBlock:^(UIViewController* vc, NSUInteger idx, BOOL *stop) {
         id<BLKControlViewControllerProtocol> controlSource = (id<BLKControlViewControllerProtocol>)vc;
         if ([controlSource respondsToSelector:@selector(control)]) {
-            BLKControl* control = controlSource.control;
-            
-            if ([controlSource respondsToSelector:@selector(setControl:)]) {
-                controlSource.control = control;
-            }
-
-            [BLKPort enumeratePortTypesForViewControllerClass:[vc class]
-                                                      withBlock:^(NSString* type, NSString *identifier, NSInteger subindex, NSDictionary* options) {
-                                                          if (!type || ![type isEqualToString:kBLKPortTypeUnknown]) {
-                                                              BLKPort* port = [self.configuration.device portOfType:type
-                                                                                                              atIndex:0
-                                                                                                             subIndex:subindex
-                                                                                                          withOptions:options];
-
-                                                              [(id)controlSource setValue:port forKey:identifier];
-                                                          }
-                                                      }];
+            [self wireUpControlSource:controlSource];
         }
         
         if ([controlSource respondsToSelector:@selector(apply:)]) {
             [controlSource apply:self];
         }
     }];
+}
+
+- (void)wireUpControlSource:(id<BLKControlViewControllerProtocol>)controlSource {
+    BLKControl* control = controlSource.control;
+
+    if ([controlSource respondsToSelector:@selector(setControl:)]) {
+        controlSource.control = control;
+    }
+
+    [BLKPort enumeratePortTypesForViewControllerClass:[controlSource class]
+                                            withBlock:^(NSString* type, NSString *identifier, NSInteger subindex, NSDictionary* options) {
+                                                if (!type || ![type isEqualToString:kBLKPortTypeUnknown]) {
+                                                    BLKPort* port = [self.configuration.device portOfType:type
+                                                                                                  atIndex:0
+                                                                                                 subIndex:subindex
+                                                                                              withOptions:options];
+                                                    [(id)controlSource setValue:port forKey:identifier];
+                                                }
+                                            }];
 }
 
 - (void)updateContainedViews
