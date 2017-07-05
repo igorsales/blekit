@@ -110,6 +110,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     [self centreStick];
 }
 

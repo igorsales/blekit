@@ -46,6 +46,23 @@
     return [self wireTitleForIndex:channelIndex];
 }
 
+- (NSInteger)damperChannelIndex {
+    switch(self.axis) {
+        case BLKAxisX: return self.joystickViewController.horizontalDamperChannelIndex; break;
+        case BLKAxisY: return self.joystickViewController.verticalDamperChannelIndex; break;
+        case BLKAxisZ: break; // Not Supported
+    }
+    
+    return NSNotFound;
+}
+
+- (void)setDamperChannelIndex:(NSInteger)channelIndex {
+    switch (self.axis) {
+        case BLKAxisX: self.joystickViewController.horizontalDamperChannelIndex = channelIndex; break;
+        case BLKAxisY: self.joystickViewController.verticalDamperChannelIndex   = channelIndex; break;
+        case BLKAxisZ: break; // Not Supported
+    }
+}
 
 #pragma mark - View lifecycle
 
@@ -88,14 +105,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 6;
+    return 7;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     switch (section) {
         case 0: //
-            return 5; // TODO:
+            return 5; // TODO: Dynamically adapt to nbr of PWM channels
 
         case 1:
             return 2;
@@ -111,6 +128,9 @@
             
         case 5:
             return 2;
+            
+        case 6:
+            return 5; // TODO: Dynamically adapt to nbr of PWM channels
     }
 
     // Return the number of rows in the section.
@@ -301,6 +321,25 @@
                     break;
             }
             break;
+
+        case 6:
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = [self wireTitleForIndex:NSNotFound];
+                    if (self.damperChannelIndex == NSNotFound) {
+                        type = UITableViewCellAccessoryCheckmark;
+                    }
+                    break;
+
+                default: // Channel index case
+                    cell.textLabel.text = [self wireTitleForIndex:indexPath.row - 1];
+                    if (self.damperChannelIndex == indexPath.row - 1) {
+                        type = UITableViewCellAccessoryCheckmark;
+                    }
+                    break;
+            }
+            cell.accessoryType  = type;
+            break;
     }
     
     return cell;
@@ -326,8 +365,12 @@
                 default:
                     switch (self.axis) {
                         case BLKAxisX: self.joystickViewController.horizontalChannel = indexPath.row - 1; break;
-                        case BLKAxisY: self.joystickViewController.verticalChannel = indexPath.row - 1; break;
-                        case BLKAxisZ: self.joystickViewController.zChannel = indexPath.row - 1; break;
+                        case BLKAxisY: self.joystickViewController.verticalChannel   = indexPath.row - 1; break;
+                        case BLKAxisZ: self.joystickViewController.zChannel          = indexPath.row - 1; break;
+                    }
+                    
+                    if (self.damperChannelIndex == indexPath.row - 1) {
+                        self.damperChannelIndex = NSNotFound;
                     }
                     break;
             }
@@ -408,6 +451,31 @@
             }
             [tableView reloadData];
             break;
+
+        case 6:
+            switch (indexPath.row) {
+                case 0:
+                    self.damperChannelIndex = NSNotFound;
+                    break;
+                    
+                default:
+                    {
+                        NSInteger signalChannelIndex = NSNotFound;
+                        switch(self.axis) {
+                            case BLKAxisX: signalChannelIndex = self.joystickViewController.horizontalChannel; break;
+                            case BLKAxisY: signalChannelIndex = self.joystickViewController.verticalChannel;   break;
+                            case BLKAxisZ: signalChannelIndex = self.joystickViewController.zChannel;          break;
+                        }
+
+                        if (signalChannelIndex != indexPath.row - 1) {
+                            self.damperChannelIndex = indexPath.row - 1;
+                        } else {
+                            signalChannelIndex = NSNotFound;
+                        }
+                    }
+                    break;
+            }
+            [tableView reloadData];
             
         default:
             break;
@@ -423,6 +491,7 @@
         case 3: return @"Scale";
         case 4: return @"On Disconnection";
         case 5: return @"Controller Motion";
+        case 6: return @"Inversely proportional to modulo of";
     }
 
     return nil;

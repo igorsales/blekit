@@ -13,6 +13,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     self.minimumValue = 0.0;
     self.maximumValue = 1.0;
     self.fillColor = self.tintColor;

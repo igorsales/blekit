@@ -11,6 +11,8 @@
 @implementation BLKSliderCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+
     // Initialization code
 }
 

@@ -23,4 +23,6 @@ extern NSString* const kBLKPortTypePWMChannels;
 - (void)setRawPulseWidth:(CGFloat)pulseWidth forChannel:(NSInteger)channelIndex commit:(BOOL)commit;
 - (void)commit;
 
+- (CGFloat)pulseWidthForChannel:(NSInteger)channelIndex;
+
 @end

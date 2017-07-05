@@ -138,9 +138,11 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if ((self = [super initWithCoder:aDecoder])) {
-        self.horizontalChannel = NSNotFound;
-        self.verticalChannel   = NSNotFound;
-        self.zChannel          = NSNotFound;
+        self.horizontalChannel            = NSNotFound;
+        self.verticalChannel              = NSNotFound;
+        self.zChannel                     = NSNotFound;
+        self.horizontalDamperChannelIndex = NSNotFound;
+        self.verticalDamperChannelIndex   = NSNotFound;
     }
 
     return self;
@@ -149,9 +151,11 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        self.horizontalChannel = NSNotFound;
-        self.verticalChannel   = NSNotFound;
-        self.zChannel          = NSNotFound;
+        self.horizontalChannel            = NSNotFound;
+        self.verticalChannel              = NSNotFound;
+        self.zChannel                     = NSNotFound;
+        self.horizontalDamperChannelIndex = NSNotFound;
+        self.verticalDamperChannelIndex   = NSNotFound;
     }
 
     return self;
@@ -240,7 +244,8 @@
                                     @"horizontalValueOnDisconnect", @"verticalValueOnDisconnect", @"zValueOnDisconnect",
                                     @"horizontalScale", @"verticalScale", @"zScale",
                                     @"horizontalTieToControllerAngle", @"verticalTieToControllerAngle", @"zTieToControllerAngle",
-                                    @"horizontalTieToControllerTilt", @"verticalTieToControllerTilt", @"zTieToControllerTilt"]
+                                    @"horizontalTieToControllerTilt", @"verticalTieToControllerTilt", @"zTieToControllerTilt",
+                                    @"horizontalDamperChannelIndex", @"verticalDamperChannelIndex"]
                                to:self];
     [self.control applyProperties:@[@"frame"] to:self.view];
     
@@ -252,7 +257,8 @@
                                            @"horizontalValueOnDisconnect", @"verticalValueOnDisconnect", @"zValueOnDisconnect",
                                            @"horizontalScale", @"verticalScale", @"zScale",
                                            @"horizontalTieToControllerAngle", @"verticalTieToControllerAngle", @"zTieToControllerAngle",
-                                           @"horizontalTieToControllerTilt", @"verticalTieToControllerTilt", @"zTieToControllerTilt"]];
+                                           @"horizontalTieToControllerTilt", @"verticalTieToControllerTilt", @"zTieToControllerTilt",
+                                           @"horizontalDamperChannelIndex", @"verticalDamperChannelIndex"]];
     [self.control bindTo:self.view properties:@[@"frame"]];
 }
 
@@ -263,7 +269,8 @@
                                      @"horizontalValueOnDisconnect", @"verticalValueOnDisconnect", @"zValueOnDisconnect",
                                      @"horizontalScale", @"verticalScale", @"zScale",
                                      @"horizontalTieToControllerAngle", @"verticalTieToControllerAngle", @"zTieToControllerAngle",
-                                     @"horizontalTieToControllerTilt", @"verticalTieToControllerTilt", @"zTieToControllerTilt"]
+                                     @"horizontalTieToControllerTilt", @"verticalTieToControllerTilt", @"zTieToControllerTilt",
+                                     @"horizontalDamperChannelIndex", @"verticalDamperChannelIndex"]
                               from:self];
     [self.control unbindProperties:@[@"frame"] from:self.view];
     [self.control unbindProperties:@[@"type",
@@ -272,34 +279,44 @@
                           from:self.joystick];
 }
 
-- (CGFloat)scaledValue:(CGFloat)value fromChannelScale:(BLKChannelScale)scale
+- (CGFloat)scaledValue:(CGFloat)value fromChannelScale:(BLKChannelScale)scale dampeningChannel:(NSInteger)damperChannelIndex
 {
+    // compute the dampened effect if any
+    CGFloat max = 1.0;
+    if (damperChannelIndex != NSNotFound) {
+        max = 1.0 - fabs([self.PWMPort pulseWidthForChannel:damperChannelIndex]);
+        
+        if (max < 0.0) {
+            max = 0.0;
+        }
+    }
+    
     switch (scale) {
         default:
         case BLKChannelScaleLinear:
             return value;
 
         case BLKChannelScaleDivideBy2:
-            return value * 0.5;
+            return value * max * 0.5;
 
         case BLKChannelScaleDivideBy3:
-            return value / 3.0;
+            return value * max / 3.0;
 
         case BLKChannelScaleDivideBy4:
-            return value * 0.25;
+            return value * max * 0.25;
 
         case BLKChannelScaleLogarithmic:
             if (value > 0) {
                 if (value < 1.0) {
-                    return -log(-value+1.0)/6.0;
+                    return -log(-value * max + 1.0)/6.0;
                 } else {
-                    return 1.0;
+                    return max * 1.0;
                 }
             } else if (value < 0) {
                 if (value > -1.0) {
-                    return log(value+1.0)/6.0;
+                    return log(value * max + 1.0)/6.0;
                 } else {
-                    return -1.0;
+                    return - max * 1.0;
                 }
             }
             return 0.0;
@@ -316,7 +333,9 @@
             portValue = 0;
         } else {
             portValue = joystickCentre.y + self.verticalTrim;
-            portValue = [self scaledValue:portValue fromChannelScale:self.verticalScale];
+            portValue = [self scaledValue:portValue
+                         fromChannelScale:self.verticalScale
+                         dampeningChannel:self.verticalDamperChannelIndex];
         }
         
         [port setPulseWidth:portValue forChannel:self.verticalChannel commit:NO];
@@ -328,7 +347,9 @@
             portValue = 0;
         } else {
             portValue = joystickCentre.x + self.horizontalTrim;
-            portValue = [self scaledValue:portValue fromChannelScale:self.horizontalScale];
+            portValue = [self scaledValue:portValue
+                         fromChannelScale:self.horizontalScale
+                         dampeningChannel:self.horizontalDamperChannelIndex];
         }
         
         [port setPulseWidth:portValue forChannel:self.horizontalChannel commit:NO];
@@ -340,7 +361,7 @@
             portValue = 0;
         } else {
             portValue = 0; // TODO: joystick.wheelAngle + self.zTrim;
-            portValue = [self scaledValue:portValue fromChannelScale:self.zScale];
+            portValue = [self scaledValue:portValue fromChannelScale:self.zScale dampeningChannel:NSNotFound];
         }
         
         [port setPulseWidth:portValue forChannel:self.zChannel commit:NO];

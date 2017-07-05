@@ -23,6 +23,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     self.dropZoneView.layer.borderWidth  = 2.5;
     self.dropZoneView.layer.borderColor  = [UIColor blueColor].CGColor;
     self.dropZoneView.layer.cornerRadius = 8.0;

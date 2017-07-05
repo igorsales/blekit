@@ -10,6 +10,9 @@
 #import "BLKPort.h"
 #import "BLKPort+Private.h"
 
+#define PULSE_CENTRE     (1500.0)
+#define HALF_PULSE_WIDTH (500.0)
+
 NSString* const kBLKPortTypePWMChannels = @"kBLKPortTypePWMChannels";
 
 @interface BLKPWMChannelsPort() {
@@ -30,8 +33,8 @@ NSString* const kBLKPortTypePWMChannels = @"kBLKPortTypePWMChannels";
     if ((self = [super initWithPeripheral:peripheral andCharacteristic:characteristic])) {
         NSAssert(sizeof(_channels) == 2 * sizeof(UInt16) * kBLKMaxNumberOfPWMChannelsPerCharacteristic, @"Data structure not aligned properly");
         for (NSInteger i = 0; i < kBLKMaxNumberOfPWMChannelsPerCharacteristic; i++) {
-            _channels.value[i] = 1500;
-            _channels.cache[i] = 1500;
+            _channels.value[i] = PULSE_CENTRE;
+            _channels.cache[i] = PULSE_CENTRE;
         }
     }
 
@@ -45,7 +48,7 @@ NSString* const kBLKPortTypePWMChannels = @"kBLKPortTypePWMChannels";
 
 - (void)setPulseWidth:(CGFloat)pulseWidth forChannel:(NSInteger)channelIndex commit:(BOOL)commit
 {
-    [self setRawPulseWidth:pulseWidth * 500.0 + 1500.0 forChannel:channelIndex commit:commit];
+    [self setRawPulseWidth:pulseWidth * HALF_PULSE_WIDTH + PULSE_CENTRE forChannel:channelIndex commit:commit];
 }
 
 - (void)setRawPulseWidth:(CGFloat)pulseWidth forChannel:(NSInteger)channelIndex
@@ -83,6 +86,17 @@ NSString* const kBLKPortTypePWMChannels = @"kBLKPortTypePWMChannels";
     [self writePulseWidths];
     [self startWatchdogTimer];
 }
+
+- (CGFloat)pulseWidthForChannel:(NSInteger)channelIndex
+{
+    if (channelIndex < 0 || channelIndex >= self.numberOfChannels) {
+        return 0.0;
+    }
+    
+    return ((CGFloat)_channels.cache[channelIndex] - PULSE_CENTRE) / HALF_PULSE_WIDTH;
+}
+
+#pragma mark - Private
 
 - (void)writePulseWidths
 {

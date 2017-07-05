@@ -22,9 +22,9 @@ typedef enum {
 
 @interface BLKJoystickViewController : UIViewController <BLKControlViewControllerProtocol>
 
-@property (nonatomic, readonly)          BLKPWMChannelsPort* PWMPort;
-@property (nonatomic, readonly)          BLKPWMChannelsPort* defaultsPWMPort;
-@property (nonatomic, weak)     IBOutlet BLKJoystick*        joystick;
+@property (nonatomic, readonly)          BLKPWMChannelsPort*   PWMPort;
+@property (nonatomic, readonly)          BLKPWMChannelsPort*   defaultsPWMPort;
+@property (nonatomic, weak)     IBOutlet BLKJoystick*          joystick;
 @property (nonatomic, assign)            NSInteger             horizontalChannel;
 @property (nonatomic, assign)            NSInteger             verticalChannel;
 @property (nonatomic, assign)            NSInteger             zChannel;
@@ -37,9 +37,9 @@ typedef enum {
 @property (nonatomic, assign)            CGFloat               verticalValueOnDisconnect;
 @property (nonatomic, assign)            CGFloat               zValueOnDisconnect;
 
-@property (nonatomic, assign)            BLKChannelScale     horizontalScale;
-@property (nonatomic, assign)            BLKChannelScale     verticalScale;
-@property (nonatomic, assign)            BLKChannelScale     zScale;
+@property (nonatomic, assign)            BLKChannelScale       horizontalScale;
+@property (nonatomic, assign)            BLKChannelScale       verticalScale;
+@property (nonatomic, assign)            BLKChannelScale       zScale;
 
 @property (nonatomic, assign)            BOOL                  horizontalTieToControllerAngle;
 @property (nonatomic, assign)            BOOL                  verticalTieToControllerAngle;
@@ -48,6 +48,9 @@ typedef enum {
 @property (nonatomic, assign)            BOOL                  horizontalTieToControllerTilt;
 @property (nonatomic, assign)            BOOL                  verticalTieToControllerTilt;
 @property (nonatomic, assign)            BOOL                  zTieToControllerTilt;
+
+@property (nonatomic, assign)            NSInteger             horizontalDamperChannelIndex;
+@property (nonatomic, assign)            NSInteger             verticalDamperChannelIndex;
 
 - (IBAction)joystickValueChanged:(id)joystick;
 - (IBAction)joystickDefaultValueChanged:(BLKJoystick*)joystick;

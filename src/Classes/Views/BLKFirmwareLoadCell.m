@@ -22,6 +22,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     self.backdropView.layer.masksToBounds = YES;
     self.backdropView.layer.cornerRadius  = 8.0;
     self.backdropView.layer.shadowColor   = [UIColor blackColor].CGColor;
